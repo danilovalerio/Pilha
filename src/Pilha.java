@@ -1,9 +1,9 @@
 public class Pilha {
     public boolean estaVazia() {
-        return false;
+        return true;
     }
 
-    public Object tamanho() {
-        return null;
+    public int tamanho() {
+        return 0;
     }
 }
