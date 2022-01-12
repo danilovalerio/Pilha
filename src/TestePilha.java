@@ -20,12 +20,16 @@ public class TestePilha {
     }
 
     @Test
-    public void empilhaDoisElemento(){
+    public void empilhaEDesempilha(){
         Pilha p = new Pilha();
         p.empilha("primeiro");
         p.empilha("segundo");
         Assert.assertFalse(p.estaVazia());
         Assert.assertEquals(2, p.tamanho());
         Assert.assertEquals("segundo", p.topo());
+        Object desempilhado = p.desempilha();
+        Assert.assertEquals(1, p.tamanho());
+        Assert.assertEquals("primeiro", p.topo());
+        Assert.assertEquals("seungdo", desempilhado);
     }
 }
