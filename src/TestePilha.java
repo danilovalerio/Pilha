@@ -30,6 +30,6 @@ public class TestePilha {
         Object desempilhado = p.desempilha();
         Assert.assertEquals(1, p.tamanho());
         Assert.assertEquals("primeiro", p.topo());
-        Assert.assertEquals("seungdo", desempilhado);
+        Assert.assertEquals("segundo", desempilhado);
     }
 }

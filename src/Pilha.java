@@ -1,10 +1,10 @@
 public class Pilha {
 
-    private Object elemento;
-    private int quantidade;
+    private Object[] elementos = new Object[10];
+    private int quantidade = 0;
 
     public boolean estaVazia() {
-        return (elemento == null);
+        return quantidade == 0;
     }
 
     public int tamanho() {
@@ -12,15 +12,17 @@ public class Pilha {
     }
 
     public void empilha(String ele) {
-        this.elemento = ele;
+       this.elementos[quantidade] = ele;
         quantidade++;
     }
 
     public Object topo() {
-        return elemento;
+        return elementos[quantidade-1];
     }
 
     public Object desempilha() {
-        return null;
+        Object topo = topo();
+        quantidade--;
+        return topo;
     }
 }
