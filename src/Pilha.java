@@ -1,16 +1,22 @@
 public class Pilha {
+
+    private Object elemento;
+    private int quantidade;
+
     public boolean estaVazia() {
-        return true;
+        return (elemento == null);
     }
 
     public int tamanho() {
-        return 0;
+        return quantidade;
     }
 
-    public void empilha(String primeiro) {
+    public void empilha(String ele) {
+        this.elemento = ele;
+        quantidade++;
     }
 
-    public String topo() {
-        return "";
+    public Object topo() {
+        return elemento;
     }
 }
