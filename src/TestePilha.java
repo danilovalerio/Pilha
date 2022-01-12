@@ -18,4 +18,14 @@ public class TestePilha {
         Assert.assertEquals(1, p.tamanho());
         Assert.assertEquals("primeiro", p.topo());
     }
+
+    @Test
+    public void empilhaDoisElemento(){
+        Pilha p = new Pilha();
+        p.empilha("primeiro");
+        p.empilha("segundo");
+        Assert.assertFalse(p.estaVazia());
+        Assert.assertEquals(2, p.tamanho());
+        Assert.assertEquals("segundo", p.topo());
+    }
 }
