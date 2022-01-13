@@ -1,3 +1,4 @@
+import exceptions.PilhaCheiaException;
 import exceptions.PilhaVaziaException;
 
 public class Pilha {
@@ -18,17 +19,19 @@ public class Pilha {
     }
 
     public void empilha(String ele) {
-       this.elementos[quantidade] = ele;
+        if (quantidade >= this.elementos.length)
+            throw new PilhaCheiaException("Não é possível empilhar, pilha cheia.");
+        this.elementos[quantidade] = ele;
         quantidade++;
     }
 
     public Object topo() {
-        return elementos[quantidade-1];
+        return elementos[quantidade - 1];
     }
 
     public Object desempilha() {
         if (estaVazia())
-            throw new PilhaVaziaException("Não é possível desempilhar uma pilha vazia");
+            throw new PilhaVaziaException("Não é possível desempilhar, pilha vazia");
         Object topo = topo();
         quantidade--;
         return topo;

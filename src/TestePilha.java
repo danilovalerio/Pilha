@@ -1,3 +1,4 @@
+import exceptions.PilhaCheiaException;
 import exceptions.PilhaVaziaException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -43,6 +44,14 @@ public class TestePilha {
     @Test(expected = PilhaVaziaException.class)
     public void removeDaPilhaVazia(){
         p.desempilha();
+    }
+
+    @Test(expected = PilhaCheiaException.class)
+    public void adicionaNaPilhaCheia(){
+        for (int i=0; i < 10; i++){
+            p.empilha("elemento"+i);
+        }
+        p.empilha("elemento");
     }
 
 }
