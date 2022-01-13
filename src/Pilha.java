@@ -1,3 +1,5 @@
+import exceptions.PilhaVaziaException;
+
 public class Pilha {
 
     private Object[] elementos;
@@ -25,6 +27,8 @@ public class Pilha {
     }
 
     public Object desempilha() {
+        if (estaVazia())
+            throw new PilhaVaziaException("Não é possível desempilhar uma pilha vazia");
         Object topo = topo();
         quantidade--;
         return topo;
