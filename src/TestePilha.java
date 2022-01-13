@@ -1,18 +1,26 @@
+import exceptions.PilhaVaziaException;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestePilha {
 
+    private Pilha p;
+
+    //antes de qualquer teste cria a instancia
+    @Before
+    public void  inicializaPilha(){
+        p = new Pilha(10);
+    }
+
     @Test
     public void pilhaVazio(){
-        Pilha p = new Pilha();
         Assert.assertTrue(p.estaVazia());
         Assert.assertEquals(0, p.tamanho());
     }
 
     @Test
     public void empilhaUmElemento(){
-        Pilha p = new Pilha();
         p.empilha("primeiro");
         Assert.assertFalse(p.estaVazia());
         Assert.assertEquals(1, p.tamanho());
@@ -21,7 +29,6 @@ public class TestePilha {
 
     @Test
     public void empilhaEDesempilha(){
-        Pilha p = new Pilha();
         p.empilha("primeiro");
         p.empilha("segundo");
         Assert.assertFalse(p.estaVazia());
@@ -32,4 +39,10 @@ public class TestePilha {
         Assert.assertEquals("primeiro", p.topo());
         Assert.assertEquals("segundo", desempilhado);
     }
+
+    @Test(expected = PilhaVaziaException.class)
+    public void removeDaPilhaVazia(){
+        p.desempilha();
+    }
+
 }
